@@ -1,0 +1,4 @@
+/* Adjust the font size of the pagination links */
+.pagination a {
+    font-size: 14px; /* Adjust the desired font size here */
+}
