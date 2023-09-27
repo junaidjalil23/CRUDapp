@@ -6,10 +6,15 @@ use Illuminate\Http\Request;
 
 class TagController extends Controller
 {
-    public function showPosts($tagId)
+
+    public function posts()
 {
-    $tag = Tag::find($tagId);
-    $posts = $tag->posts;
-    return view('tags.posts', compact('tag', 'posts'));
+    return $this->belongsToMany(Post::class);
 }
+//     public function showPosts($tagId)
+// {
+//     $tag = Tag::find($tagId);
+//     $posts = $tag->posts;
+//     return view('tags.posts', compact('tag', 'posts'));
+// }
 }

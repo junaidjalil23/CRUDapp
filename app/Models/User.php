@@ -14,18 +14,30 @@ class User extends Model
 {
 
 
-    // protected $table = 'users';
-    // protected $primarykey = 'user_id';
+    protected $table = 'users';
+    protected $primarykey = 'user_id';
     use HasFactory;
     function profile(){
-        return $this->hasOne(Profile::class,'profiles_id','profiles_id');
+        return $this->hasOne(Profile::class,'profiles_id');
+    }
+
+    public function posts()
+    {
+        return $this->hasMany(Post::class, 'posts_id','posts_id');    
     }
 
 
-    // public function posts()
-    // {
-    //     return $this->hasMany(Post::class);
-    // }
+
+
+
+
+
+
+
+
+
+
+
 
     // public function roles()
     // {

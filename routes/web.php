@@ -26,16 +26,19 @@ Route::resource('products', ProductController::class);
                             // Laravel Relations Example routes
 
 // Route::resource('users', UserController::class);
-// // User routes
-Route::get('/users', [UserController::class, 'index'])->name('users.index');
-Route::get('/users/{userId}/posts', [UserController::class, 'showPosts'])->name('users.posts');
-Route::get('/users/{userId}/roles', [UserController::class, 'showRoles'])->name('users.roles');
+Route::get('/users', [UserController::class, 'index']);
+Route::get('/usersshow', [UserController::class, 'show']);
 
-// Post routes
-Route::get('/posts/{postId}/comments', [PostController::class, 'showComments'])->name('posts.comments');
+// // // User routes
+// Route::get('/users', [UserController::class, 'index'])->name('users.index');
+// Route::get('/users/{userId}/posts', [UserController::class, 'showPosts'])->name('users.posts');
+// Route::get('/users/{userId}/roles', [UserController::class, 'showRoles'])->name('users.roles');
 
-// Comment routes
-Route::get('/comments/{commentId}/user', [CommentController::class, 'showUser'])->name('comments.user');
+// // Post routes
+// Route::get('/posts/{postId}/comments', [PostController::class, 'showComments'])->name('posts.comments');
 
-// Tag routes
-Route::get('/tags/{tagId}/posts', [TagController::class, 'showPosts'])->name('tags.posts');
+// // Comment routes
+// Route::get('/comments/{commentId}/user', [CommentController::class, 'showUser'])->name('comments.user');
+
+// // Tag routes
+// Route::get('/tags/{tagId}/posts', [TagController::class, 'showPosts'])->name('tags.posts');
