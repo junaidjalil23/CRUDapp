@@ -3,19 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\PostTag;
 use App\Models\Profile;
 use App\Models\User;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
+         
         return Profile::with('user')->get();
     }
     public function show()
     {
-        return Post::with('showpost')->get();
+        // $data = Post::with('showpost')->get();
+        $data = Tag::find(1);
+        dd($data->posts);
+        return Post::with('tags')->get();
     }
 
     

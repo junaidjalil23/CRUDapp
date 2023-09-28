@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 class TagController extends Controller
 {
 
-    public function posts()
+    public function showtag()
 {
-    return $this->belongsToMany(Post::class);
+    return $this->belongsToMany(Post::class,'post_tag','posts_id','tags_id');
 }
 //     public function showPosts($tagId)
 // {

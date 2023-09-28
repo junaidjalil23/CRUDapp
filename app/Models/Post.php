@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Post extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'posts_id';
      protected $fillable = ['title', 'content'];
     public function showpost()
     {
@@ -21,6 +22,6 @@ class Post extends Model
 
     public function tags()
     {
-        return $this->belongsToMany(Tag::class);
+        return $this->belongsToMany(Tag::class, 'post_tag','posts_id','tags_id');
     }
 }

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\PostController;
+
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\TagController;
 /*
@@ -29,6 +30,15 @@ Route::resource('products', ProductController::class);
 Route::get('/users', [UserController::class, 'index']);
 Route::get('/usersshow', [UserController::class, 'show']);
 
+
+// // Routes for managing posts
+// Route::resource('posts', PostController);
+
+// // Routes for managing tags
+// Route::resource('tags', TagController);
+
+// Associate tags with a post (example route)
+Route::get('/posts/{post}/tags', [PostController::class, 'attachTags'])->name('posts.attachTags');
 // // // User routes
 // Route::get('/users', [UserController::class, 'index'])->name('users.index');
 // Route::get('/users/{userId}/posts', [UserController::class, 'showPosts'])->name('users.posts');
