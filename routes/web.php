@@ -20,16 +20,27 @@ use App\Http\Controllers\TagController;
                 // Laravel CRUD example routes
 Route::resource('products', ProductController::class);
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return view('welcome');
+});
 
                             // Laravel Relations Example routes
 
 // Route::resource('users', UserController::class);
-Route::get('/users', [UserController::class, 'index']);
-Route::get('/usersshow', [UserController::class, 'show']);
-
+Route::get('/login', function(){
+    session()->put('user_id', 1);               // Route for Middleware Implementing
+    return redirect('/');
+});
+Route::get('/logout', function(){
+    session()->forget('user_id');               // Route for Middleware Implementing
+    return redirect('/');
+});
+Route::get('/users', [UserController::class, 'index'])->middleware('access');   // Route Middleware Implementation
+Route::get('/usersshow', [UserController::class, 'show'])->middleware('access');
+Route::get('/no-access', function(){
+    echo "<h1>Access denied.!!!!!!!</h1>";
+    die;
+});
 
 // // Routes for managing posts
 // Route::resource('posts', PostController);
