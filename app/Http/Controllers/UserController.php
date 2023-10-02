@@ -33,12 +33,12 @@ class UserController extends Controller
 
 
     
-// public function showPosts($usersId)
-// {
-//     $users = User::find($usersId);
-//     $posts = $users->posts;
-//     return view('users.posts', compact('users', 'posts'));
-// }
+public function showPosts($usersId)
+{
+    $users = User::find($usersId);
+    $posts = $users->posts;
+    return view('users.posts', compact('users', 'posts'));
+}
 // public function showRoles($usersId)
 // {
 //     $users = User::find($usersId);
